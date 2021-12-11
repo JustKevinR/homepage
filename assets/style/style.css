@@ -1,0 +1,207 @@
+:root {
+  --v1: #be91c6;
+  --v2: #8a65cc;
+  --v3: #5e30d9;
+  --transparentv3: #5e30d900;
+  --v4: #3b1895;
+  --s1: #fea798;
+  --s2: #ff846e;
+  --cloud: #fea798;
+}
+body {
+  padding: 0;
+  margin: 0;
+}
+.landscape {
+  height: 100vh;
+  background-image: linear-gradient(var(--v1), var(--s1), var(--v1));
+  position: relative;
+  /* z-index: 1; */
+  overflow: hidden;
+}
+.landscape:after,
+.landscape:before,
+.landscape *,
+.landscape *:after,
+.landscape *:before {
+  position: absolute;
+}
+.sun-container {
+  overflow: hidden;
+  width: 100%;
+  height: 50%;
+}
+
+/* .sun-container-1:after {
+  content: "";
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 60% 100%, var(--s2), transparent);
+  animation: fade 20s infinite;
+  mix-blend-mode: color-burn;
+} */
+/* .sun-container-reflection {
+  top: 50%;
+  background: radial-gradient(circle at 60% 0%, var(--s2), transparent);
+} */
+.sun-container-reflection .sun {
+  background: linear-gradient(white, rgba(255, 255, 255, 0));
+  box-shadow: none;
+  filter: blur(5px);
+  opacity: 1;
+  top: 0;
+  transform: translate3d(0, -20vmin, 0);
+  animation-name: rise-reflection;
+}
+.sun-container-1:after {
+  content: "";
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 60% 100%, var(--s2), transparent);
+  /* animation: fade 20s infinite; */
+  mix-blend-mode: color-burn;
+}
+.sun {
+  background: white;
+  border-radius: 50%;
+  width: 20vmin;
+  height: 20vmin;
+  left: 45%;
+  top: 100%;
+  /* transform: translate3d(0, 0, 0); */
+  animation: rise 20s infinite;
+  box-shadow: 0 0 10px white;
+}
+.moon {
+  top: 100%;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  left: 50%;
+  transform: rotate(-50deg);
+  /* I set 2 shadows where the first one doesn't have blur and spread for firefox fix. */
+  box-shadow: inset 0px 16px rgb(255, 255, 255),
+    inset 0px 16px 1px 1px rgb(255, 255, 255);
+  -moz-box-shadow: inset 0px 16px rgb(255, 255, 255),
+    inset 0px 16px 1px 1px #999;
+}
+.navbar-icons-container {
+  height: 2.5rem;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.navbar-home-link-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.navbar-home-link-block img {
+  width: 50px;
+}
+.navbar-home-link-containers {
+  position: absolute;
+  width: 100%;
+  height: 70%;
+  bottom: 7%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+.navbar-home-link-img-Rectangular {
+  display: inline-block;
+  position: relative;
+  width: 180px;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-top: 2.5rem;
+}
+.navbar-home-link-img-Rectangular img {
+  width: auto;
+  height: 100%;
+  margin-left: -50px;
+}
+.Square {
+  border-radius: 50%;
+  width: 180px;
+  height: 180px;
+  margin-top: 2.5rem;
+}
+
+.navbar-home-link-img-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40rem;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+}
+.navbar-home-links {
+  display: flex;
+  margin-top: 2rem;
+  align-items: center;
+}
+.navbar-home-links-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1.7rem;
+}
+.navbar-home-links-container a {
+  padding: 0rem 1rem 1rem 1rem;
+  font-size: 1.25rem;
+  text-decoration: none;
+  color: wheat;
+}
+.icon {
+  align-items: center;
+  display: flex;
+  padding-bottom: 0.4rem;
+  padding-top: 0.6rem;
+}
+.navbar-icons {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 2.3rem;
+  border-radius: 25px 25px 0 0;
+  min-width: 20rem;
+  background-color: rgba(0, 0, 0, 0.3);
+
+  backdrop-filter: blur(5px);
+}
+.navbar-icons .iconify {
+}
+
+/* @keyframes rise {
+  100% {
+    transform: translate3d(0, -100vh, 20vmin);
+  }
+} */
+@keyframes rise-reflection {
+  30% {
+    opacity: 0;
+    transform: translate3d(0, 5vmin, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, 80vmin, 0);
+  }
+}
+@keyframes fade {
+  10% {
+    opacity: 1;
+  }
+  30%,
+  70% {
+    opacity: 0;
+  }
+}

@@ -47,7 +47,7 @@ body {
   background: radial-gradient(circle at 60% 0%, var(--s2), transparent);
 } */
 .sun-container-reflection .sun {
-  background: linear-gradient(white, rgba(255, 255, 255, 0));
+  background: linear-gradient(white, rgba(131, 21, 21, 0));
   box-shadow: none;
   filter: blur(5px);
   opacity: 1;
@@ -81,7 +81,7 @@ body {
   width: 90px;
   height: 90px;
   border-radius: 50%;
-  left: 50%;
+  left: 48.5%;
   transform: rotate(-50deg);
   /* I set 2 shadows where the first one doesn't have blur and spread for firefox fix. */
   box-shadow: inset 0px 16px rgb(255, 255, 255),
@@ -106,15 +106,26 @@ body {
 }
 .navbar-home-link-block img {
   width: 50px;
+  height: 50px;
 }
-.navbar-home-link-containers {
+
+.main-home-container {
   position: absolute;
   width: 100%;
-  height: 70%;
-  bottom: 7%;
+  height: 75%;
+  top: 17%;
   display: flex;
   justify-content: center;
   flex-direction: row;
+}
+.home-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40rem;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
 }
 .navbar-home-link-img-Rectangular {
   display: inline-block;
@@ -146,22 +157,7 @@ body {
   background-color: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(5px);
 }
-.navbar-home-links {
-  display: flex;
-  margin-top: 2rem;
-  align-items: center;
-}
-.navbar-home-links-container {
-  display: flex;
-  flex-direction: column;
-  padding: 1.7rem;
-}
-.navbar-home-links-container a {
-  padding: 0rem 1rem 1rem 1rem;
-  font-size: 1.25rem;
-  text-decoration: none;
-  color: wheat;
-}
+
 .icon {
   align-items: center;
   display: flex;
@@ -177,6 +173,29 @@ body {
   background-color: rgba(0, 0, 0, 0.3);
 
   backdrop-filter: blur(5px);
+}
+.home-img-container {
+  width: 100%;
+  height: 38.5%;
+  display: flex;
+  justify-content: center;
+}
+.home-lings-container {
+  width: 100%;
+  height: 61.5%;
+  display: grid;
+  grid-template-columns: repeat(3, calc(100% / 3));
+  grid-template-rows: repeat(4, calc(100% / 4));
+}
+.home-grid-item {
+  font-size: 1.25rem;
+  text-align: center;
+  justify-items: center;
+  align-items: center;
+}
+.home-grid-item a {
+  text-decoration: none;
+  color: wheat;
 }
 .navbar-icons .iconify {
 }
@@ -203,5 +222,27 @@ body {
   30%,
   70% {
     opacity: 0;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .main-home-container {
+    top: 0%;
+    height: 90%;
+  }
+  body {
+    overflow: hidden;
+  }
+  .home-grid-item {
+    font-size: 1rem;
+  }
+  .navbar-home-link-block img {
+    width: 40px;
+    height: 40px;
+  }
+  .Square {
+    margin: 1rem;
+  }
+  .moon {
+    left: 41%;
   }
 }

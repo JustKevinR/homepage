@@ -37,8 +37,10 @@ iconsINcontainer.forEach((icon) => {
       console.log(homeNavbar);
       if (homeNavbar.style.display === "none") {
         homeNavbar.style.display = "block";
+        icon.style.color = "purple";
       } else {
         homeNavbar.style.display = "none";
+        icon.style.color = "black";
       }
     }
   });

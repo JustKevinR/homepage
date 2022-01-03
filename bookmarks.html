@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/style/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section class="bookmarks">
+      <div class="bookmark-container">
+        <div class="bookmark-icons">
+          <div id="home" class="bookmark-icon-button">
+            <span
+              class="iconify bookmark-button"
+              data-icon="ant-design:home-outlined"
+              id="bookmark-home-icon"
+            ></span>
+          </div>
+          <div class="bookmark-icons">
+            <div class="bookmark-icon-button" id="world">
+              <span
+                class="iconify bookmark-button"
+                data-icon="clarity:world-line"
+                id="bookmark-world-icon"
+              ></span>
+            </div>
+            <a href="index.html">
+              <div class="bookmark-icon-button">
+                <span
+                  class="iconify bookmark-button"
+                  data-icon="dashicons:arrow-left-alt2"
+                  id="bookmark-back-icon"
+                ></span>
+              </div>
+            </a>
+            <div class="bookmark-clock clock">
+              <div id="hrs"></div>
+              <div class="marks">:</div>
+              <div id="min" class="yellow" style="padding-right: 2rem"></div>
+              <div id="month"></div>
+              <div class="marks">/</div>
+              <div id="date"></div>
+              <div class="marks">/</div>
+              <div id="year" class="yellow"></div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="bookmarks-layout"
+          id="bookmarks-home-layout"
+          style="display: none"
+        >
+          <div class="bookmark-grid-container">
+            <a href="https://www.youtube.com">
+              <div class="bookmark-grid-item">
+                <div class="bookmark-title">
+                  <div class="bookmark-title-colored">YT</div>
+                  <div class="bookmark-full-title">YouTube</div>
+                </div>
+              </div>
+            </a>
+
+            <a
+              href="https://www.notion.so/Welcome-f61a99d2402b4411a9c340c739074d42"
+            >
+              <div class="bookmark-grid-item">
+                <div class="bookmark-title">
+                  <div class="bookmark-title-colored">N</div>
+                  <div class="bookmark-full-title">Notion</div>
+                </div>
+              </div>
+            </a>
+            <a href="https://www2.movies7.to">
+              <div class="bookmark-grid-item">
+                <div class="bookmark-title">
+                  <div class="bookmark-title-colored">MV</div>
+                  <div class="bookmark-full-title">Movies</div>
+                </div>
+              </div>
+            </a>
+            <a href="https://vault.bitwarden.com/#/">
+              <div class="bookmark-grid-item">
+                <div class="bookmark-title">
+                  <div class="bookmark-title-colored">BW</div>
+                  <div class="bookmark-full-title">Bitwarden</div>
+                </div>
+              </div>
+            </a>
+            <a href="https://snapdrop.net">
+              <div class="bookmark-grid-item">
+                <div class="bookmark-title">
+                  <div class="bookmark-title-colored">SD</div>
+                  <div class="bookmark-full-title">Snapdrop</div>
+                </div>
+              </div>
+            </a>
+            <a href="https://github.com">
+              <div class="bookmark-grid-item">
+                <div class="bookmark-title">
+                  <div class="bookmark-title-colored">GH</div>
+                  <div class="bookmark-full-title">Github</div>
+                </div>
+              </div>
+            </a>
+            <a href="https://www.netlify.com">
+              <div class="bookmark-grid-item">
+                <div class="bookmark-title">
+                  <div class="bookmark-title-colored">NF</div>
+                  <div class="bookmark-full-title">Netlify</div>
+                </div>
+              </div>
+            </a>
+            <a href="https://lifeat.io/space/NewYears2022-Space3">
+              <div class="bookmark-grid-item">
+                <div class="bookmark-title">
+                  <div class="bookmark-title-colored">IO</div>
+                  <div class="bookmark-full-title">LifeIO</div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="bookmarks-layout"
+          id="bookmarks-home-layout"
+          style="display: none"
+        >
+          <div class="bookmark-grid-container">
+            <a href="https://www.youtube.com">
+              <div class="bookmark-grid-item">
+                <div class="bookmark-title">
+                  <div class="bookmark-title-colored">YT</div>
+                  <div class="bookmark-full-title">YouTube</div>
+                </div>
+              </div>
+            </a>
+
+            <a
+              href="https://www.notion.so/Welcome-f61a99d2402b4411a9c340c739074d42"
+            >
+              <div class="bookmark-grid-item">
+                <div class="bookmark-title">
+                  <div class="bookmark-title-colored">N</div>
+                  <div class="bookmark-full-title">Notion</div>
+                </div>
+              </div>
+            </a>
+            <a href="https://www2.movies7.to">
+              <div class="bookmark-grid-item">
+                <div class="bookmark-title">
+                  <div class="bookmark-title-colored">MV</div>
+                  <div class="bookmark-full-title">Movies</div>
+                </div>
+              </div>
+            </a>
+            <a href="https://vault.bitwarden.com/#/">
+              <div class="bookmark-grid-item">
+                <div class="bookmark-title">
+                  <div class="bookmark-title-colored">BW</div>
+                  <div class="bookmark-full-title">Bitwarden</div>
+                </div>
+              </div>
+            </a>
+            <a href="https://snapdrop.net">
+              <div class="bookmark-grid-item">
+                <div class="bookmark-title">
+                  <div class="bookmark-title-colored">SD</div>
+                  <div class="bookmark-full-title">Snapdrop</div>
+                </div>
+              </div>
+            </a>
+            <a href="https://github.com">
+              <div class="bookmark-grid-item">
+                <div class="bookmark-title">
+                  <div class="bookmark-title-colored">GH</div>
+                  <div class="bookmark-full-title">Github</div>
+                </div>
+              </div>
+            </a>
+            <a href="https://www.netlify.com">
+              <div class="bookmark-grid-item">
+                <div class="bookmark-title">
+                  <div class="bookmark-title-colored">NF</div>
+                  <div class="bookmark-full-title">Netlify</div>
+                </div>
+              </div>
+            </a>
+            <a href="https://lifeat.io/space/NewYears2022-Space3">
+              <div class="bookmark-grid-item">
+                <div class="bookmark-title">
+                  <div class="bookmark-title-colored">IO</div>
+                  <div class="bookmark-full-title">LifeIO</div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="bookmarks-layout"
+          id="bookmarks-world-layout"
+          style="display: none"
+        >
+          <div class="bookmark-grid-container">
+            <a href="https://estonianworld.com">
+              <div class="bookmark-grid-item">
+                <div class="bookmark-title">
+                  <div class="bookmark-title-colored">EW</div>
+                  <div class="bookmark-full-title">Estonia World</div>
+                </div>
+              </div>
+            </a>
+
+            <a href="https://www.nasdaq.com">
+              <div class="bookmark-grid-item">
+                <div class="bookmark-title">
+                  <div class="bookmark-title-colored">S</div>
+                  <div class="bookmark-full-title">Stock</div>
+                </div>
+              </div>
+            </a>
+            <a href="https://www.nytimes.com/column/the-daily">
+              <div class="bookmark-grid-item">
+                <div class="bookmark-title">
+                  <div class="bookmark-title-colored">NY</div>
+                  <div class="bookmark-full-title">NyTimes</div>
+                </div>
+              </div>
+            </a>
+            <a href="https://www.keybr.com">
+              <div class="bookmark-grid-item">
+                <div class="bookmark-title">
+                  <div class="bookmark-title-colored">BR</div>
+                  <div class="bookmark-full-title">KeyBR</div>
+                </div>
+              </div>
+            </a>
+            <a href="https://www.bbc.com/news">
+              <div class="bookmark-grid-item">
+                <div class="bookmark-title">
+                  <div class="bookmark-title-colored">B</div>
+                  <div class="bookmark-full-title">BBC</div>
+                </div>
+              </div>
+            </a>
+            <a href="https://www.nitrotype.com">
+              <div class="bookmark-grid-item">
+                <div class="bookmark-title">
+                  <div class="bookmark-title-colored">NT</div>
+                  <div class="bookmark-full-title">NitroType</div>
+                </div>
+              </div>
+            </a>
+            <a href="https://toggl.com/track/toggl-desktop/">
+              <div class="bookmark-grid-item">
+                <div class="bookmark-title">
+                  <div class="bookmark-title-colored">T</div>
+                  <div class="bookmark-full-title">Toggl</div>
+                </div>
+              </div>
+            </a>
+            <a href="https://www.ratatype.com">
+              <div class="bookmark-grid-item">
+                <div class="bookmark-title">
+                  <div class="bookmark-title-colored">RT</div>
+                  <div class="bookmark-full-title">RataType</div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
+    <script src="assets/script/bookmark-script.js"></script>
+  </body>
+</html>

@@ -18,7 +18,7 @@
 
   /* layout knobs */
   --slide-w:300px;
-  --card-w:1070px;   /* left content + slideshow */
+  --card-w:1070px;
   --card-h:600px;
 
   --content-max:700px; /* fixed block width for perfect centering */
@@ -35,10 +35,8 @@ body{
   color:var(--text);
   font-family:'Iosevka',monospace;
   font-size:20px;
-
-  /* center the card in the viewport */
   display:grid;
-  place-items:center;
+  place-items:center; /* center the card */
 }
 
 /* Card */
@@ -56,30 +54,30 @@ body{
 /* LEFT region */
 .content{
   position:absolute;
-  inset:0 var(--slide-w) 0 0; /* leave room for slideshow */
+  inset:0 var(--slide-w) 0 0;     /* leave room for slideshow */
   display:grid;
-  place-items:center;         /* centers .content-inner block */
+  place-items:center;             /* centers .content-inner block */
   padding:28px;
 }
 
-/* Fixed-width block keeps optical center */
 .content-inner{
   width:100%;
   max-width:var(--content-max);
   margin:0 auto;
 }
 
-/* Title */
+/* Title (centered) */
 header{ text-align:center; margin-bottom:18px; }
 h1{ margin:0; font-weight:400; color:var(--text-strong); letter-spacing:.02em; font-size:2.05rem; }
 .flair{ color:var(--blue); }
 
-/* Equal-width columns */
+/* Equal-width columns; whole block centered */
 nav.links{
   display:grid;
   grid-template-columns:repeat(4, 1fr);
   column-gap:var(--col-gap);
   align-items:start;
+  justify-items:center; /* center each column box in the grid cell */
   position:relative;
   padding:10px 8px;
 }
@@ -89,20 +87,20 @@ nav.links::before,
 nav.links::after{
   content:"";
   position:absolute; top:0; bottom:0; width:1px;
-  background:rgba(35,35,40,.6); /* soft line */
+  background:rgba(35,35,40,.6);
 }
 nav.links::before{ left:25%; }
 nav.links::after { left:75%; }
 
-/* Columns */
+/* Columns: CENTERED text & items */
 nav.links ul{
   list-style:none;
   margin:0;
   padding:0 4px;
-  text-align:left;            /* easier scanning */
+  text-align:center;             /* <-- centered text */
   display:flex;
   flex-direction:column;
-  align-items:flex-start;
+  align-items:center;            /* <-- center items */
 }
 
 .section-title{
@@ -146,7 +144,7 @@ ul.red    > li > a:hover{ color:var(--red); }
 .mySlides{ position:absolute; inset:0; display:none; }
 .mySlides img{
   width:100%; height:100%;
-  object-fit:cover; object-position:center; /* tweak center if needed */
+  object-fit:cover; object-position:center;
   display:block;
 }
 

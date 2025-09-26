@@ -18,12 +18,13 @@
 
   /* layout knobs */
   --slide-w:300px;
-  --card-w:1070px;
+  --card-w:1070px;   /* left content + slideshow */
   --card-h:600px;
 
-  --content-max:700px;  /* fixed block width for perfect centering */
-  --col-w:200px;        /* ← equal column width so all look identical */
-  --col-gap:52px;       /* space between columns */
+  --col-w:200px;     /* equal column width */
+  --col-gap:52px;    /* space between columns */
+  /* content width = 4 cols + 3 gaps */
+  --content-max: calc( (var(--col-w) * 4) + (var(--col-gap) * 3) );
 }
 
 *{ box-sizing:border-box; }
@@ -36,6 +37,7 @@ body{
   color:var(--text);
   font-family:'Iosevka',monospace;
   font-size:20px;
+
   display:grid;
   place-items:center; /* center the card */
 }
@@ -55,15 +57,15 @@ body{
 /* LEFT region */
 .content{
   position:absolute;
-  inset:0 var(--slide-w) 0 0;     /* leave room for slideshow */
+  inset:0 var(--slide-w) 0 0;  /* leave room for slideshow */
   display:grid;
-  place-items:center;             /* centers .content-inner block */
+  place-items:center;          /* centers .content-inner block */
   padding:28px;
 }
 
 .content-inner{
   width:100%;
-  max-width:var(--content-max);
+  max-width:var(--content-max);   /* big enough to fit 4 columns */
   margin:0 auto;
 }
 
@@ -72,24 +74,18 @@ header{ text-align:center; margin-bottom:18px; }
 h1{ margin:0; font-weight:400; color:var(--text-strong); letter-spacing:.02em; font-size:2.05rem; }
 .flair{ color:var(--blue); }
 
-/* ===== NAV COLUMNS (all look like “Home”) ============================= */
-
-/* Equal-width columns; whole block centered */
+/* NAV COLUMNS: all identical to “Home” */
 nav.links{
   display:grid;
   grid-template-columns:repeat(4, var(--col-w));
-  justify-content:center;        /* centers the entire 4-col block */
+  justify-content:center;       /* center the whole 4-col block */
   column-gap:var(--col-gap);
   align-items:start;
   position:relative;
   padding:10px 8px;
 }
 
-/* Remove old global separators if you had them */
-nav.links::before,
-nav.links::after{ content:none; }
-
-/* Each column box */
+/* Each column */
 nav.links ul{
   list-style:none;
   margin:0;
@@ -97,12 +93,12 @@ nav.links ul{
   width:var(--col-w);
   display:flex;
   flex-direction:column;
-  align-items:flex-start;   /* left like “Home” */
-  text-align:left;          /* left like “Home” */
+  align-items:flex-start;
+  text-align:left;
   position:relative;
 }
 
-/* Draw a separator line halfway between columns (not before the first) */
+/* Per-gap separator (not before first col) */
 nav.links ul:not(:first-child)::before{
   content:"";
   position:absolute;
@@ -125,7 +121,7 @@ ul > li > a{
   text-decoration:none;
   color:#adadad;
   transition:color .2s ease, text-decoration-color .2s ease;
-  white-space:nowrap;   /* prevent multi-line wraps like “YouTube Entertainment” */
+  white-space:nowrap;    /* no multi-line wraps */
 }
 ul > li > a:focus-visible{
   outline:none;
@@ -140,7 +136,7 @@ ul.blue   > li > a:hover{ color:var(--blue); }
 ul.yellow > li > a:hover{ color:var(--yellow); }
 ul.red    > li > a:hover{ color:var(--red); }
 
-/* ===== RIGHT slideshow ================================================= */
+/* RIGHT slideshow */
 .image-wrapper{
   position:absolute;
   top:0; right:0;
@@ -182,27 +178,28 @@ ul.red    > li > a:hover{ color:var(--red); }
   letter-spacing:.02em;
 }
 
-/* ===== Responsive (optional) ========================================== */
+/* Responsive */
 @media (max-width:1140px){
   :root{ --card-w:95vw; }
 }
-
 @media (max-width:980px){
-  :root{ --slide-w:100%; --card-h:auto; }
+  :root{
+    --slide-w:100%;
+    --card-h:auto;
+    --col-w: 190px;
+    --col-gap: 32px;
+    --content-max: calc( (var(--col-w) * 2) + (var(--col-gap) * 1) ); /* for 2 cols layout */
+  }
   .image-wrapper{
     position:relative;
     width:100%; height:44vh;
     border-left:none; border-top:1px solid var(--border);
   }
   .content{ right:0; }
-  /* Switch to two columns on small screens, remove separators */
   nav.links{
-    grid-template-columns:repeat(2, minmax(180px, 1fr));
-    column-gap:32px; row-gap:24px;
+    grid-template-columns:repeat(2, var(--col-w));
+    row-gap:24px;
     justify-content:center;
   }
-  nav.links ul{
-    width:auto;           /* allow columns to shrink/grow */
-  }
-  nav.links ul::before{ display:none; }
+  nav.links ul::before{ display:none; } /* no vertical separators on mobile */
 }

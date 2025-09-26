@@ -1,184 +1,195 @@
-@font-face {
-  font-family:'Iosevka';
+@font-face{
+  font-family: 'Iosevka';
   src: url('Iosevka.ttf');
+  font-display: swap;
 }
 
-body {
+/* Page */
+:root{
+  --bg: #0F0F12;
+  --panel: #18181D;
+  --border: #232328;
+  --text: #BFBFBF;
+  --text-strong: #FEFFFA;
+  --blue: #0972D6;
+  --green: #4FAE0F;
+  --red: #ed3434;
+  --yellow: #edd934;
+}
+
+*{ box-sizing: border-box; }
+
+html, body{
+  height: 100%;
+}
+
+body{
   font-family: 'Iosevka', monospace;
   font-size: 20px;
-  background-color: #0F0F12;
-  background-image: url("img/");
-  background-repeat: repeat;
-  width: 670px;
-  height: 320px;
-  position: absolute;
-  top: 0px;
-  bottom: 100px;
-  left: 0px;
-  right: 0px;
-  margin: auto;
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
 }
 
-h1 {
-  font-weight: normal;
-  color: #FEFFFA;
+/* Main card */
+.main{
   position: relative;
-  text-align: center;
-  horizontal-align: middle;
-}
-
-.flair {
-  color: #0972D6;
-}
-
-.main {
-  display: inline-block;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #232328;
-  position: relative;
-  top: -100px;
-  width: 770px;
+  width: 1070px;        /* 770 content + 300 slideshow */
   height: 600px;
-  left: -200px;
-  right: 0px;
-  margin: auto;
-  background-color: #18181D;
-  text-align: center;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
 }
 
-.image-wrapper {
-  border-style: solid;
-  border-width: 1px;
-  border-color: #232328;
+/* Slideshow panel on the right */
+.image-wrapper{
   position: absolute;
-  top: -1px;
+  top: 0;
+  right: 0;
   width: 300px;
   height: 600px;
-  left: 770px;
-  background-color: #18181D;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  border-left: 1px solid var(--border);
+  background: #111;
+  overflow: hidden;
 }
 
-img {
-  top: -1px;
-  width: 300px;
-  height: 600px;
+.mySlides{
+  position: absolute;
+  inset: 0;
+  display: none;           /* JS toggles */
 }
 
-.next {
+.mySlides img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Next button */
+.next{
   cursor: pointer;
   position: absolute;
-  top: 575px;
-  width: auto;
+  bottom: 10px;
   right: 10px;
-  padding: 5px;
-  margin-top: -22px;
-  color: white;
-  font-weight: bold;
-  font-size: 30px;
-  transition: 0.6s ease;
-  user-select: none;
-  border-radius: 3px 0 0 3px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  display: inline-block;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-weight: bold;
+  font-size: 24px;
+  user-select: none;
+  background: rgba(0,0,0,.25);
+  text-decoration: none;
 }
 
-.fade {
+/* Fade animation (optional, kept from yours) */
+.fade{
   -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
+  -webkit-animation-duration: 1.2s;
   animation-name: fade;
-  animation-duration: 1.5s;
+  animation-duration: 1.2s;
 }
+@-webkit-keyframes fade{ from{opacity:.4} to{opacity:1} }
+@keyframes fade{ from{opacity:.4} to{opacity:1} }
 
-@-webkit-keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
-
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
-
-.codes {
-  color: #FFFFFF;
-  font-family: Iosevka, monospace;
-  font-size: 18px;
+/* Dots */
+.dots{
   position: absolute;
-  top: 565px;
-  width: auto;
-  height: auto;
-  left: 12px;
+  left: 0;
+  right: 300px;   /* keep dots within main content, not over slideshow */
+  bottom: 8px;
+  text-align: center;
+  pointer-events: auto;
 }
-
-li {
-  margin: 10px 0;
-}
-
-nav {
+.reqdVar{
   display: inline-block;
-  vertical-align: middle;
-  horizontal-align: middle;
-  color: #BFBFBF;
-  font-size: 20px;
+  width: 10px; height: 10px;
+  margin: 0 4px;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  opacity: .6; cursor: pointer;
+}
+.reqdVar.active{ opacity: 1; }
+
+/* Header */
+header{
+  position: absolute;
+  left: 0;
+  right: 300px;
+  top: 24px;
   text-align: center;
-  left= 50%;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
+}
+h1{
+  margin: 0;
+  font-weight: 400;
+  color: var(--text-strong);
+}
+.flair{ color: var(--blue); }
+
+/* Clock */
+.codes{
+  position: absolute;
+  left: 12px;
+  bottom: 40px;
+  color: #fff;
+  font-family: 'Iosevka', monospace;
+  font-size: 18px;
 }
 
-ul {
-  display: table-cell;
-  horizontal-align: middle;
-  text-align: center;
-  height: 100%;
-  border-color: #232328;
-  border-right-width: 1px;
-  border-right-style: solid;
-  padding: 10px 25px;
-  transition: all 0.8s;
-  cursor: default;
-  list-style-type: none;
+/* Nav columns */
+nav.links{
+  position: absolute;
+  left: 0;
+  right: 300px;
+  top: 90px;
+  bottom: 80px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: stretch;
+  padding: 0 12px;
+  gap: 12px;
 }
 
-ul:last-of-type {
-  border-right-width: 0;
+/* Each column */
+nav.links ul{
+  list-style: none;
+  margin: 0;
+  padding: 10px 24px;
+  border-right: 1px solid var(--border);
+  transition: color .3s ease;
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+nav.links ul:last-of-type{ border-right: none; }
+
+nav.links ul:hover{ color: #fff; }
+
+.section-title{
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-strong);
+  margin: 4px 0 10px;
 }
 
-ul:hover {
-  color: #FFFFFF;
-}
-
-ul > li:first-of-type{
-  padding-top: 5px;
-}
-
-ul > li > a {
-  text-decoration:none;
+/* Items */
+li{ margin: 8px 0; }
+ul > li > a{
+  text-decoration: none;
   color: #adadad;
-  transition: all 0.8s;
+  transition: color .25s ease;
 }
 
-ul[class=green] > li > a:hover {
-  color: #4FAE0F;
-  transition: all 0.5s;
-}
-
-ul[class=blue] > li > a:hover {
-  color: #0972D6;
-  transition: all 0.5s;
-}
-
-ul[class=red] > li > a:hover {
-  color: #ed3434;
-  transition: all 0.5s;
-}
-
-ul[class=yellow] > li > a:hover {
-  color: #edd934;
-  transition: all 0.5s;
-}
+/* Hover colors by column */
+ul.green  > li > a:hover{  color: var(--green); }
+ul.blue   > li > a:hover{  color: var(--blue); }
+ul.red    > li > a:hover{  color: var(--red); }
+ul.yellow > li > a:hover{  color: var(--yellow); }

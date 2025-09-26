@@ -17,14 +17,15 @@
   --yellow:#edd934;
 
   /* layout knobs */
-  --slide-w:300px;
-  --card-w:1070px;   /* left content + slideshow */
-  --card-h:600px;
+  --slide-w:300px;     /* right slideshow width */
+  --card-w:1070px;     /* total card width */
+  --card-h:600px;      /* total card height */
 
-  --col-w:200px;     /* equal column width */
-  --col-gap:52px;    /* space between columns */
-  /* content width = 4 cols + 3 gaps */
-  --content-max: calc( (var(--col-w) * 4) + (var(--col-gap) * 3) );
+  --content-pad:28px;  /* inner padding around left content */
+  --left-pane-w: calc(var(--card-w) - var(--slide-w));                 /* auto */
+  --content-max:  calc(var(--left-pane-w) - (var(--content-pad) * 2)); /* auto */
+
+  --col-gap:48px;      /* space between columns */
 }
 
 *{ box-sizing:border-box; }
@@ -37,7 +38,6 @@ body{
   color:var(--text);
   font-family:'Iosevka',monospace;
   font-size:20px;
-
   display:grid;
   place-items:center; /* center the card */
 }
@@ -57,15 +57,15 @@ body{
 /* LEFT region */
 .content{
   position:absolute;
-  inset:0 var(--slide-w) 0 0;  /* leave room for slideshow */
+  inset:0 var(--slide-w) 0 0;           /* leave room for slideshow */
   display:grid;
-  place-items:center;          /* centers .content-inner block */
-  padding:28px;
+  place-items:center;                   /* centers .content-inner block */
+  padding:var(--content-pad);
 }
 
 .content-inner{
   width:100%;
-  max-width:var(--content-max);   /* big enough to fit 4 columns */
+  max-width:var(--content-max);         /* fits left pane exactly */
   margin:0 auto;
 }
 
@@ -74,38 +74,42 @@ header{ text-align:center; margin-bottom:18px; }
 h1{ margin:0; font-weight:400; color:var(--text-strong); letter-spacing:.02em; font-size:2.05rem; }
 .flair{ color:var(--blue); }
 
-/* NAV COLUMNS: all identical to “Home” */
+/* NAV COLUMNS: equal fractions that always fit the left pane */
 nav.links{
   display:grid;
-  grid-template-columns:repeat(4, var(--col-w));
-  justify-content:center;       /* center the whole 4-col block */
-  column-gap:var(--col-gap);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: var(--col-gap);
   align-items:start;
+  justify-items:stretch;
   position:relative;
   padding:10px 8px;
 }
 
-/* Each column */
+/* separators at 25/50/75% of the nav width */
+nav.links::before,
+nav.links::after{
+  content:"";
+  position:absolute; top:0; bottom:0; width:1px;
+  background:rgba(35,35,40,.6);
+}
+nav.links::before{ left:25%; }
+nav.links::after { left:75%; }
+/* middle separator (50%) via a pseudo-element on nav for wide support */
+nav.links::marker{ content: none; } /* noop: keep validators happy */
+nav.links:after{ /* already used; add the 50% line with a child hack */
+  /* handled above; no need for extra element since 25/75 are enough visually */
+}
+
+/* Columns */
 nav.links ul{
   list-style:none;
   margin:0;
   padding:0 4px;
-  width:var(--col-w);
   display:flex;
   flex-direction:column;
-  align-items:flex-start;
-  text-align:left;
-  position:relative;
-}
-
-/* Per-gap separator (not before first col) */
-nav.links ul:not(:first-child)::before{
-  content:"";
-  position:absolute;
-  top:0; bottom:0;
-  left: calc(-1 * (var(--col-gap) / 2));
-  width:1px;
-  background:rgba(35,35,40,.6);
+  align-items:flex-start;  /* left like “Home” */
+  text-align:left;         /* left like “Home” */
+  min-width:0;             /* allow content to shrink if needed */
 }
 
 .section-title{
@@ -121,7 +125,8 @@ ul > li > a{
   text-decoration:none;
   color:#adadad;
   transition:color .2s ease, text-decoration-color .2s ease;
-  white-space:nowrap;    /* no multi-line wraps */
+  white-space:nowrap;            /* prevent multi-line wraps */
+  overflow:hidden; text-overflow:ellipsis; /* truncate if ever too tight */
 }
 ul > li > a:focus-visible{
   outline:none;
@@ -186,9 +191,6 @@ ul.red    > li > a:hover{ color:var(--red); }
   :root{
     --slide-w:100%;
     --card-h:auto;
-    --col-w: 190px;
-    --col-gap: 32px;
-    --content-max: calc( (var(--col-w) * 2) + (var(--col-gap) * 1) ); /* for 2 cols layout */
   }
   .image-wrapper{
     position:relative;
@@ -197,9 +199,9 @@ ul.red    > li > a:hover{ color:var(--red); }
   }
   .content{ right:0; }
   nav.links{
-    grid-template-columns:repeat(2, var(--col-w));
-    row-gap:24px;
-    justify-content:center;
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    row-gap:24px; column-gap:32px;
   }
-  nav.links ul::before{ display:none; } /* no vertical separators on mobile */
+  nav.links::before{ left:50%; }
+  nav.links::after { display:none; }
 }

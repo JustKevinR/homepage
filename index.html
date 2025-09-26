@@ -1,241 +1,186 @@
 <!DOCTYPE html>
-<!--Starpage by -->
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>~</title>
-	<link rel="stylesheet" href="assets/style/general.css" />
+  <meta charset="utf-8" />
+  <title>~</title>
+  <link rel="stylesheet" href="assets/style/general.css" />
+  <style>
+    /* tiny quality-of-life defaults in case CSS isn't loaded yet */
+    .image-wrapper { position: relative; max-width: 100%; }
+    .mySlides { display: none; }
+    .mySlides img { width: 100%; display: block; }
+    .next { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); cursor: pointer; }
+    .reqdVar { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin: 2px; border: 1px solid currentColor; cursor: pointer; }
+    .reqdVar.active { background: currentColor; }
+    nav ul { list-style: none; padding-left: 0; }
+    nav ul li.section-title { font-size: 22px; font-weight: 600; margin: 6px 0; }
+    header h1 { margin: .5rem 0 0; }
+    #codes { margin: .5rem 0; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  </style>
 </head>
 <body>
-	<div class="main" style="display: block;">
-		<div class="image-wrapper">
+  <div class="main" style="display:block;">
+    <div class="image-wrapper">
+      <div class="mySlides fade"><img src="assets/imgs/side1.gif" alt="slide 1"></div>
+      <div class="mySlides fade"><img src="assets/imgs/side2.gif" alt="slide 2"></div>
+      <div class="mySlides fade"><img src="assets/imgs/side3.gif" alt="slide 3"></div>
+      <div class="mySlides fade"><img src="assets/imgs/side4.gif" alt="slide 4"></div>
+      <div class="mySlides fade"><img src="assets/imgs/side5.gif" alt="slide 5"></div>
+      <div class="mySlides fade"><img src="assets/imgs/side6.gif" alt="slide 6"></div>
+      <div class="mySlides fade"><img src="assets/imgs/side7.gif" alt="slide 7"></div>
+      <div class="mySlides fade"><img src="assets/imgs/side8.gif" alt="slide 8"></div>
+      <div class="mySlides fade"><img src="assets/imgs/side9.gif" alt="slide 9"></div>
+      <div class="mySlides fade"><img src="assets/imgs/side10.gif" alt="slide 10"></div>
+      <div class="mySlides fade"><img src="assets/imgs/side11.gif" alt="slide 11"></div>
+      <div class="mySlides fade"><img src="assets/imgs/side12.gif" alt="slide 12"></div>
+      <div class="mySlides fade"><img src="assets/imgs/side13.gif" alt="slide 13"></div>
+      <div class="mySlides fade"><img src="assets/imgs/side14.gif" alt="slide 14"></div>
+      <div class="mySlides fade"><img src="assets/imgs/side15.gif" alt="slide 15"></div>
+      <div class="mySlides fade"><img src="assets/imgs/side16.gif" alt="slide 16"></div>
+      <div class="mySlides fade"><img src="assets/imgs/side17.gif" alt="slide 17"></div>
+      <div class="mySlides fade"><img src="assets/imgs/side18.gif" alt="slide 18"></div>
+      <div class="mySlides fade"><img src="assets/imgs/side19.gif" alt="slide 19"></div>
+      <div class="mySlides fade"><img src="assets/imgs/side20.gif" alt="slide 20"></div>
+      <div class="mySlides fade"><img src="assets/imgs/side21.gif" alt="slide 21"></div>
+      <div class="mySlides fade"><img src="assets/imgs/side22.gif" alt="slide 22"></div>
+      <div class="mySlides fade"><img src="assets/imgs/side23.gif" alt="slide 23"></div>
 
-			<div class="mySlides fade">
-				<img src="assets/imgs/side1.gif">
-			</div>
+      <a class="next" onclick="plusSlides(1)" aria-label="Next slide">&#8734;</a>
+    </div>
 
-			<div class="mySlides fade">
-				<img src="assets/imgs/side2.gif">
-			</div>
+    <br>
 
-			<div class="mySlides fade">
-				<img src="assets/imgs/side3.gif">
-			</div>
+    <div style="text-align:center">
+      <span class="reqdVar" onclick="currentSlide(1)"></span>
+      <span class="reqdVar" onclick="currentSlide(2)"></span>
+      <span class="reqdVar" onclick="currentSlide(3)"></span>
+      <span class="reqdVar" onclick="currentSlide(4)"></span>
+      <span class="reqdVar" onclick="currentSlide(5)"></span>
+      <span class="reqdVar" onclick="currentSlide(6)"></span>
+      <span class="reqdVar" onclick="currentSlide(7)"></span>
+      <span class="reqdVar" onclick="currentSlide(8)"></span>
+      <span class="reqdVar" onclick="currentSlide(9)"></span>
+      <span class="reqdVar" onclick="currentSlide(10)"></span>
+      <span class="reqdVar" onclick="currentSlide(11)"></span>
+      <span class="reqdVar" onclick="currentSlide(12)"></span>
+      <span class="reqdVar" onclick="currentSlide(13)"></span>
+      <span class="reqdVar" onclick="currentSlide(14)"></span>
+      <span class="reqdVar" onclick="currentSlide(15)"></span>
+      <span class="reqdVar" onclick="currentSlide(16)"></span>
+      <span class="reqdVar" onclick="currentSlide(17)"></span>
+      <span class="reqdVar" onclick="currentSlide(18)"></span>
+      <span class="reqdVar" onclick="currentSlide(19)"></span>
+      <span class="reqdVar" onclick="currentSlide(20)"></span>
+      <span class="reqdVar" onclick="currentSlide(21)"></span>
+      <span class="reqdVar" onclick="currentSlide(22)"></span>
+      <span class="reqdVar" onclick="currentSlide(23)"></span>
+    </div>
 
-			<div class="mySlides fade">
-				<img src="assets/imgs/side4.gif">
-			</div>
+    <header>
+      <br>
+      <h1><span class="flair">Welcome</span></h1>
+    </header>
 
-			<div class="mySlides fade">
-				<img src="assets/imgs/side5.gif">
-			</div>
+    <nav>
+      <br>
+      <ul class="green">
+        <li class="section-title">Daily</li>
+        <li><a href="https://docs.google.com/spreadsheets/d/1o7UVflc-YgG8DFLHvee0Mv4Ij-raPF-l-GATx-buwtI/edit?pli=1&gid=0#gid=0">Excel Tracking</a></li>
+        <li><a href="https://chatgpt.com/">ChatGPT</a></li>
+        <li><a href="https://www.notion.so/Home-Station-f694799c31ef438e90fb4b02af3b6120">Notion</a></li>
+        <li><a href="https://vault.bitwarden.com/#/">Bitwarden</a></li>
+      </ul>
 
-			<div class="mySlides fade">
-				<img src="assets/imgs/side6.gif">
-			</div>
+      <ul class="blue">
+        <li class="section-title">YouTube</li>
+        <li><a href="https://www.youtube.com/">YouTube Home</a></li>
+        <li><a href="https://www.youtube.com/playlist?list=PLGlkTReTM-9NqpIZoZTp5ntRAuwF1PsEq">YouTube Study</a></li>
+        <li><a href="https://www.youtube.com/playlist?list=PLGlkTReTM-9M2lq1LSTP7MobFy78qwwpi">YouTube POV</a></li>
+        <li><a href="https://www.youtube.com/playlist?list=PLGlkTReTM-9Omn1WCNHBaOpn9uHn3e1oh">YouTube Entertainment</a></li>
+      </ul>
 
-			<div class="mySlides fade">
-				<img src="assets/imgs/side7.gif">
-			</div>
+      <ul class="yellow">
+        <li class="section-title">Else</li>
+        <li><a href="https://gmail.com/">Gmail</a></li>
+        <li><a href="https://drive.google.com/drive/my-drive">Drive</a></li>
+        <li><a href="https://snapdrop.net/">Snapdrop</a></li>
+        <li><a href="https://github.com/">GitHub</a></li>
+        <li><a href="https://www.netlify.com/">Netlify</a></li>
+        <li><a href="https://www.reddit.com/r/FREEMEDIAHECKYEAH/wiki/video/#wiki_.25B7_streaming_apis">Reddit Movies</a></li>
+      </ul>
 
-			<div class="mySlides fade">
-				<img src="assets/imgs/side8.gif">
-			</div>
+      <ul class="red">
+        <li class="section-title">Home</li>
+        <li><a href="#">temp1</a></li>
+        <li><a href="#">temp2</a></li>
+        <li><a href="#">temp3</a></li>
+      </ul>
+    </nav>
 
-			<div class="mySlides fade">
-				<img src="assets/imgs/side9.gif">
-			</div>
+    <div id="codes"></div>
+  </div>
 
-			<div class="mySlides fade">
-				<img src="assets/imgs/side10.gif">
-			</div>
+  <script>
+    // Clock
+    (function updateClock() {
+      const days = ['SUNDAY','MONDAY','TUESDAY','WEDNESDAY','THURSDAY','FRIDAY','SATURDAY'];
+      const m = new Date();
+      const dateString =
+        days[m.getDay()] + " " +
+        String(m.getDate()).padStart(2, '0') + "/" +
+        String(m.getMonth() + 1).padStart(2, '0') + "/" +
+        m.getFullYear() + " " +
+        String(m.getHours()).padStart(2, '0') + ":" +
+        String(m.getMinutes()).padStart(2, '0') + ":" +
+        String(m.getSeconds()).padStart(2, '0');
 
-			<div class="mySlides fade">
-				<img src="assets/imgs/side11.gif">
-			</div>
+      const el = document.getElementById('codes');
+      if (el) el.textContent = dateString;
 
-			<div class="mySlides fade">
-				<img src="assets/imgs/side12.gif">
-			</div>
+      setTimeout(updateClock, 1000);
+    })();
 
-			<div class="mySlides fade">
-				<img src="assets/imgs/side13.gif">
-			</div>
+    // Slideshow with localStorage persistence
+    let slideIndex = parseInt(localStorage.getItem('slideIndex') || "1", 10);
+    if (isNaN(slideIndex) || slideIndex < 1) slideIndex = 1;
 
-			<div class="mySlides fade">
-				<img src="assets/imgs/side14.gif">
-			</div>
+    function showSlides(n) {
+      const slides = document.getElementsByClassName("mySlides");
+      const dots = document.getElementsByClassName("reqdVar");
+      const total = slides.length;
 
-			<div class="mySlides fade">
-				<img src="assets/imgs/side15.gif">
-			</div>
+      // wrap around
+      if (n > total) slideIndex = 1;
+      if (n < 1) slideIndex = total;
 
-			<div class="mySlides fade">
-				<img src="assets/imgs/side16.gif">
-			</div>
+      // hide all
+      for (let i = 0; i < total; i++) {
+        slides[i].style.display = "none";
+      }
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.remove("active");
+      }
 
-			<div class="mySlides fade">
-				<img src="assets/imgs/side17.gif">
-			</div>
+      // show current
+      slides[slideIndex - 1].style.display = "block";
+      if (dots[slideIndex - 1]) dots[slideIndex - 1].classList.add("active");
+    }
 
-			<div class="mySlides fade">
-				<img src="assets/imgs/side18.gif">
-			</div>
+    function plusSlides(n) {
+      slideIndex += n;
+      showSlides(slideIndex);
+      localStorage.setItem('slideIndex', String(slideIndex));
+    }
 
-			<div class="mySlides fade">
-				<img src="assets/imgs/side19.gif">
-			</div>
+    // NOTE: original markup called currentSlide(…) but JS had currentSlides(…)
+    function currentSlide(n) {
+      slideIndex = n;
+      showSlides(slideIndex);
+      localStorage.setItem('slideIndex', String(slideIndex));
+    }
 
-			<div class="mySlides fade">
-				<img src="assets/imgs/side20.gif">
-			</div>
-
-			<div class="mySlides fade">
-				<img src="assets/imgs/side21.gif">
-			</div>
-
-			<div class="mySlides fade">
-				<img src="assets/imgs/side22.gif">
-			</div>
-
-
-			<div class="mySlides fade">
-				<img src="assets/imgs/side23.gif">
-			</div>
-
-
-			<a class="next" onclick="plusSlides(1)">&#8734;</a>
-		</div>
-		<br>
-
-		<div style="text-align:center">
-			<span class="reqdVar" onclick="currentSlide(1)"></span>
-			<span class="reqdVar" onclick="currentSlide(2)"></span>
-			<span class="reqdVar" onclick="currentSlide(3)"></span>
-			<span class="reqdVar" onclick="currentSlide(4)"></span>
-			<span class="reqdVar" onclick="currentSlide(5)"></span>
-			<span class="reqdVar" onclick="currentSlide(6)"></span>
-			<span class="reqdVar" onclick="currentSlide(7)"></span>
-			<span class="reqdVar" onclick="currentSlide(8)"></span>
-			<span class="reqdVar" onclick="currentSlide(9)"></span>
-			<span class="reqdVar" onclick="currentSlide(10)"></span>
-			<span class="reqdVar" onclick="currentSlide(11)"></span>
-			<span class="reqdVar" onclick="currentSlide(12)"></span>
-			<span class="reqdVar" onclick="currentSlide(13)"></span>
-			<span class="reqdVar" onclick="currentSlide(14)"></span>
-			<span class="reqdVar" onclick="currentSlide(15)"></span>
-			<span class="reqdVar" onclick="currentSlide(16)"></span>
-			<span class="reqdVar" onclick="currentSlide(17)"></span>
-			<span class="reqdVar" onclick="currentSlide(18)"></span>
-			<span class="reqdVar" onclick="currentSlide(19)"></span>
-			<span class="reqdVar" onclick="currentSlide(20)"></span>
-			<span class="reqdVar" onclick="currentSlide(21)"></span>
-			<span class="reqdVar" onclick="currentSlide(22)"></span>
-			<span class="reqdVar" onclick="currentSlide(23)"></span>
-		</div>
-
-		<header>
-			<br>
-			<h1><span class="flair">Welcome</span></h1>
-		</header>
-
-		<nav>
-			<br>
-			<ul class="green">
-				<a style="font-size:22px">Daily</a>
-				<li><a href="https://docs.google.com/spreadsheets/d/1o7UVflc-YgG8DFLHvee0Mv4Ij-raPF-l-GATx-buwtI/edit?pli=1&gid=0#gid=0">Excel Tracking</a></li>
-				<li><a  href="https://chatgpt.com/">ChatGPT</a></li>
-				<li><a href="https://www.notion.so/Home-Station-f694799c31ef438e90fb4b02af3b6120">Notion</a></li>
-				<li><a href="https://vault.bitwarden.com/#/">Bitwarden</a></li>
-			</ul>
-			<ul class="blue">
-				<a style="font-size:22px">Youtbe</a>
-				<li><a href="https://www.youtube.com/">Youtube Home</a></li>
-				<li><a  href="https://www.youtube.com/playlist?list=PLGlkTReTM-9NqpIZoZTp5ntRAuwF1PsEq">Youtube Study</a></li>
-				<li><a  href="https://www.youtube.com/playlist?list=PLGlkTReTM-9M2lq1LSTP7MobFy78qwwpi">Youtube POV</a></li>
-				<li><a  href="https://www.youtube.com/playlist?list=PLGlkTReTM-9Omn1WCNHBaOpn9uHn3e1oh">Youtbe Entertaiment</a></li>
-			</ul>
-			<ul class="yellow">
-				<a style="font-size:22px">Else</a>
-				<li><a href="https://gmail.com/">Gmail</a></li>
-				<li><a href="https://drive.google.com/drive/my-drive">Drive</a></li>
-				<li><a href="https://snapdrop.net/">Snapdrop</a></li>
-				<li><a href="https://github.com/">Github</a></li>
-				<li><a href="https://www.netlify.com/">Netlify</a></li>
-				<li><a href="https://www.reddit.com/r/FREEMEDIAHECKYEAH/wiki/video/#wiki_.25B7_streaming_apis">Reddit Moves</a></li>
-			</ul>
-			<ul class="red">
-				<a style="font-size:22px">Home</a>
-				<li><a href="">temp1</a></li>
-				<li><a href="">temp2/a></li>
-				<li><a href="">temp2</a></li>
-			</ul>
-		</nav>
-		<div class="codes" id="codes">
-			<script>
-			//document.getElementById("main").innerHTML = Date();
-			function updateClock() {
-				var days = ['SUNDAY','MONDAY','TUESDAY','WEDNESDAY','THURSDAY','FRIDAY','SATURDAY'];
-				var m = new Date();
-				var dateString =
-				(days[ m.getDay() ]) + " " +
-				("0" + m.getDate()).slice(-2) + "/" +
-				("0" + (m.getMonth()+1)).slice(-2) +"/"+
-				m.getFullYear() +" "+
-				("0" + m.getHours()).slice(-2) + ":" +
-				("0" + m.getMinutes()).slice(-2) + ":" +
-				("0" + m.getSeconds()).slice(-2);
-
-				// set the content of the element with the ID codes to the formatted string
-				document.getElementById('codes').innerHTML = dateString;
-
-				// call this function again in 1000ms
-				setTimeout(updateClock, 1000);
-			}
-			updateClock(); // initial call
-
-			// Set local storage
-			var slideIx = Number(localStorage.getItem('slideIndex') || 1);
-
-			var slideIndex = slideIx;
-			showSlides(slideIndex);
-
-			// Next/previous controls
-			function plusSlides(n) {
-				showSlides(slideIndex += n);
-				localStorage.setItem('slideIndex', slideIndex);
-				console.log(localStorage.getItem('slideIndex'));
-			}
-
-			// Thumbnail image controls
-			function currentSlides(n) {
-				showSlides(slideIndex = n);
-				localStorage.setItem('slideIndex', slideIndex);
-				console.log(localStorage.getItem('slideIndex'));
-			}
-
-			// Show slides
-			function showSlides(n) {
-				var i;
-				var slides = document.getElementsByClassName("mySlides");
-				var reqdVars = document.getElementsByClassName("reqdVar");
-				if (n > slides.length) {
-					slideIndex = 1;
-				}
-				if (n < 1) {
-					slideIndex = slides.length;
-				}
-				for (i = 0; i < slides.length; i++) {
-					slides[i].style.display = "none";
-				}
-				for (i = 0; i < reqdVars.length; i++) {
-					reqdVars[i].className = reqdVars[i].className.replace(" active", "");
-				}
-				slides[slideIndex-1].style.display = "block";
-				reqdVars[slideIndex-1].className += " active";
-			}
-			</script>
-		</div>
-	</body>
-	</html>
-
+    // init after DOM is ready enough (script is at end of body, so safe)
+    showSlides(slideIndex);
+  </script>
+</body>
+</html>

@@ -7,50 +7,52 @@
 </head>
 <body>
   <div class="main">
-    <!-- Centered content area (left side of the card) -->
+    <!-- LEFT: perfectly centered content -->
     <div class="content">
-      <header>
-        <h1><span class="flair">Welcome</span></h1>
-      </header>
+      <div class="content-inner">
+        <header>
+          <h1><span class="flair">Welcome</span></h1>
+        </header>
 
-      <!-- Nav columns -->
-      <nav class="links">
-        <ul class="green">
-          <li class="section-title">Daily</li>
-          <li><a href="https://docs.google.com/spreadsheets/d/1o7UVflc-YgG8DFLHvee0Mv4Ij-raPF-l-GATx-buwtI/edit?pli=1&gid=0#gid=0">Tracking</a></li>
-          <li><a href="https://chatgpt.com/">ChatGPT</a></li>
-          <li><a href="https://www.notion.so/Home-Station-f694799c31ef438e90fb4b02af3b6120">Notion</a></li>
-          <li><a href="https://vault.bitwarden.com/#/">Bitwarden</a></li>
-        </ul>
+        <!-- Four equal columns; separators handled by CSS -->
+        <nav class="links">
+          <ul class="green">
+            <li class="section-title">Daily</li>
+            <li><a href="https://docs.google.com/spreadsheets/d/1o7UVflc-YgG8DFLHvee0Mv4Ij-raPF-l-GATx-buwtI/edit?pli=1&gid=0#gid=0">Tracking</a></li>
+            <li><a href="https://chatgpt.com/">ChatGPT</a></li>
+            <li><a href="https://www.notion.so/Home-Station-f694799c31ef438e90fb4b02af3b6120">Notion</a></li>
+            <li><a href="https://vault.bitwarden.com/#/">Bitwarden</a></li>
+          </ul>
 
-        <ul class="blue">
-          <li class="section-title">YouTube</li>
-          <li><a href="https://www.youtube.com/">YouTube Home</a></li>
-          <li><a href="https://www.youtube.com/playlist?list=PLGlkTReTM-9NqpIZoZTp5ntRAuwF1PsEq">YouTube Study</a></li>
-          <li><a href="https://www.youtube.com/playlist?list=PLGlkTReTM-9M2lq1LSTP7MobFy78qwwpi">YouTube POV</a></li>
-          <li><a href="https://www.youtube.com/playlist?list=PLGlkTReTM-9Omn1WCNHBaOpn9uHn3e1oh">YouTube Entertainment</a></li>
-        </ul>
+          <ul class="blue">
+            <li class="section-title">YouTube</li>
+            <li><a href="https://www.youtube.com/">YouTube Home</a></li>
+            <li><a href="https://www.youtube.com/playlist?list=PLGlkTReTM-9NqpIZoZTp5ntRAuwF1PsEq">YouTube Study</a></li>
+            <li><a href="https://www.youtube.com/playlist?list=PLGlkTReTM-9M2lq1LSTP7MobFy78qwwpi">YouTube POV</a></li>
+            <li><a href="https://www.youtube.com/playlist?list=PLGlkTReTM-9Omn1WCNHBaOpn9uHn3e1oh">YouTube Entertainment</a></li>
+          </ul>
 
-        <ul class="yellow">
-          <li class="section-title">Else</li>
-          <li><a href="https://gmail.com/">Gmail</a></li>
-          <li><a href="https://drive.google.com/drive/my-drive">Drive</a></li>
-          <li><a href="https://snapdrop.net/">Snapdrop</a></li>
-          <li><a href="https://github.com/">GitHub</a></li>
-          <li><a href="https://www.netlify.com/">Netlify</a></li>
-          <li><a href="https://www.reddit.com/r/FREEMEDIAHECKYEAH/wiki/video/#wiki_.25B7_streaming_apis">Reddit Movies</a></li>
-        </ul>
+          <ul class="yellow">
+            <li class="section-title">Else</li>
+            <li><a href="https://gmail.com/">Gmail</a></li>
+            <li><a href="https://drive.google.com/drive/my-drive">Drive</a></li>
+            <li><a href="https://snapdrop.net/">Snapdrop</a></li>
+            <li><a href="https://github.com/">GitHub</a></li>
+            <li><a href="https://www.netlify.com/">Netlify</a></li>
+            <li><a href="https://www.reddit.com/r/FREEMEDIAHECKYEAH/wiki/video/#wiki_.25B7_streaming_apis">Reddit Movies</a></li>
+          </ul>
 
-        <ul class="red">
-          <li class="section-title">Home</li>
-          <li><a href="#">temp1</a></li>
-          <li><a href="#">temp2</a></li>
-          <li><a href="#">temp3</a></li>
-        </ul>
-      </nav>
+          <ul class="red">
+            <li class="section-title">Home</li>
+            <li><a href="#">temp1</a></li>
+            <li><a href="#">temp2</a></li>
+            <li><a href="#">temp3</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
 
-    <!-- Slideshow column on the right -->
+    <!-- RIGHT: slideshow pinned -->
     <div class="image-wrapper">
       <div class="mySlides fade"><img src="assets/imgs/side1.gif"  alt="slide 1"></div>
       <div class="mySlides fade"><img src="assets/imgs/side2.gif"  alt="slide 2"></div>
@@ -88,47 +90,38 @@
     (function updateClock() {
       const days = ['SUNDAY','MONDAY','TUESDAY','WEDNESDAY','THURSDAY','FRIDAY','SATURDAY'];
       const m = new Date();
-      const dateString =
-        days[m.getDay()] + " " +
-        String(m.getDate()).padStart(2, '0') + "/" +
-        String(m.getMonth() + 1).padStart(2, '0') + "/" +
-        m.getFullYear() + " " +
-        String(m.getHours()).padStart(2, '0') + ":" +
-        String(m.getMinutes()).padStart(2, '0') + ":" +
-        String(m.getSeconds()).padStart(2, '0');
+      const s = [
+        days[m.getDay()],
+        String(m.getDate()).padStart(2,'0') + "/" + String(m.getMonth()+1).padStart(2,'0') + "/" + m.getFullYear(),
+        String(m.getHours()).padStart(2,'0') + ":" + String(m.getMinutes()).padStart(2,'0') + ":" + String(m.getSeconds()).padStart(2,'0')
+      ].join(" ");
       const el = document.getElementById('codes');
-      if (el) el.textContent = dateString;
+      if (el) el.textContent = s;
       setTimeout(updateClock, 1000);
     })();
 
-    // Slideshow with localStorage persistence
+    // Slideshow + localStorage
     let slideIndex = parseInt(localStorage.getItem('slideIndex') || "1", 10);
     if (isNaN(slideIndex) || slideIndex < 1) slideIndex = 1;
 
-    function showSlides(n) {
+    function showSlides(n){
       const slides = document.getElementsByClassName("mySlides");
-      const total  = slides.length;
-
+      const total = slides.length;
       if (n > total) slideIndex = 1;
-      if (n < 1)     slideIndex = total;
-
-      for (let i = 0; i < total; i++) slides[i].style.display = "none";
-      slides[slideIndex - 1].style.display = "block";
+      if (n < 1) slideIndex = total;
+      for (let i=0;i<total;i++) slides[i].style.display = "none";
+      slides[slideIndex-1].style.display = "block";
     }
-
-    function plusSlides(n) {
+    function plusSlides(n){
       slideIndex += n;
       showSlides(slideIndex);
       localStorage.setItem('slideIndex', String(slideIndex));
     }
-
-    function currentSlide(n) {
+    function currentSlide(n){
       slideIndex = n;
       showSlides(slideIndex);
       localStorage.setItem('slideIndex', String(slideIndex));
     }
-
-    // init
     showSlides(slideIndex);
   </script>
 </body>

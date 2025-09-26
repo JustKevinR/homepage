@@ -21,8 +21,9 @@
   --card-w:1070px;
   --card-h:600px;
 
-  --content-max:700px; /* fixed block width for perfect centering */
-  --col-gap:52px;      /* space between columns */
+  --content-max:700px;  /* fixed block width for perfect centering */
+  --col-w:200px;        /* ← equal column width so all look identical */
+  --col-gap:52px;       /* space between columns */
 }
 
 *{ box-sizing:border-box; }
@@ -71,36 +72,44 @@ header{ text-align:center; margin-bottom:18px; }
 h1{ margin:0; font-weight:400; color:var(--text-strong); letter-spacing:.02em; font-size:2.05rem; }
 .flair{ color:var(--blue); }
 
+/* ===== NAV COLUMNS (all look like “Home”) ============================= */
+
 /* Equal-width columns; whole block centered */
 nav.links{
   display:grid;
-  grid-template-columns:repeat(4, 1fr);
+  grid-template-columns:repeat(4, var(--col-w));
+  justify-content:center;        /* centers the entire 4-col block */
   column-gap:var(--col-gap);
   align-items:start;
-  justify-items:center; /* center each column box in the grid cell */
   position:relative;
   padding:10px 8px;
 }
 
-/* subtle separators at 25/50/75% */
+/* Remove old global separators if you had them */
 nav.links::before,
-nav.links::after{
-  content:"";
-  position:absolute; top:0; bottom:0; width:1px;
-  background:rgba(35,35,40,.6);
-}
-nav.links::before{ left:25%; }
-nav.links::after { left:75%; }
+nav.links::after{ content:none; }
 
-/* Columns: CENTERED text & items */
+/* Each column box */
 nav.links ul{
   list-style:none;
   margin:0;
   padding:0 4px;
-  text-align:center;             /* <-- centered text */
+  width:var(--col-w);
   display:flex;
   flex-direction:column;
-  align-items:center;            /* <-- center items */
+  align-items:flex-start;   /* left like “Home” */
+  text-align:left;          /* left like “Home” */
+  position:relative;
+}
+
+/* Draw a separator line halfway between columns (not before the first) */
+nav.links ul:not(:first-child)::before{
+  content:"";
+  position:absolute;
+  top:0; bottom:0;
+  left: calc(-1 * (var(--col-gap) / 2));
+  width:1px;
+  background:rgba(35,35,40,.6);
 }
 
 .section-title{
@@ -116,6 +125,7 @@ ul > li > a{
   text-decoration:none;
   color:#adadad;
   transition:color .2s ease, text-decoration-color .2s ease;
+  white-space:nowrap;   /* prevent multi-line wraps like “YouTube Entertainment” */
 }
 ul > li > a:focus-visible{
   outline:none;
@@ -130,7 +140,7 @@ ul.blue   > li > a:hover{ color:var(--blue); }
 ul.yellow > li > a:hover{ color:var(--yellow); }
 ul.red    > li > a:hover{ color:var(--red); }
 
-/* RIGHT slideshow */
+/* ===== RIGHT slideshow ================================================= */
 .image-wrapper{
   position:absolute;
   top:0; right:0;
@@ -148,7 +158,6 @@ ul.red    > li > a:hover{ color:var(--red); }
   display:block;
 }
 
-/* Next button */
 .next{
   cursor:pointer;
   position:absolute;
@@ -173,10 +182,11 @@ ul.red    > li > a:hover{ color:var(--red); }
   letter-spacing:.02em;
 }
 
-/* Responsive (optional) */
+/* ===== Responsive (optional) ========================================== */
 @media (max-width:1140px){
   :root{ --card-w:95vw; }
 }
+
 @media (max-width:980px){
   :root{ --slide-w:100%; --card-h:auto; }
   .image-wrapper{
@@ -185,10 +195,14 @@ ul.red    > li > a:hover{ color:var(--red); }
     border-left:none; border-top:1px solid var(--border);
   }
   .content{ right:0; }
+  /* Switch to two columns on small screens, remove separators */
   nav.links{
-    grid-template-columns:repeat(2, 1fr);
-    row-gap:24px; column-gap:32px;
+    grid-template-columns:repeat(2, minmax(180px, 1fr));
+    column-gap:32px; row-gap:24px;
+    justify-content:center;
   }
-  nav.links::before{ left:50%; }
-  nav.links::after{ display:none; }
+  nav.links ul{
+    width:auto;           /* allow columns to shrink/grow */
+  }
+  nav.links ul::before{ display:none; }
 }

@@ -4,7 +4,7 @@
   font-display: swap;
 }
 
-/* Page */
+/* Palette */
 :root{
   --bg: #0F0F12;
   --panel: #18181D;
@@ -18,34 +18,96 @@
 }
 
 *{ box-sizing: border-box; }
-
-html, body{
-  height: 100%;
-}
+html, body{ height: 100%; }
 
 body{
-  font-family: 'Iosevka', monospace;
-  font-size: 20px;
+  margin: 0;
+  padding: 24px;
   background: var(--bg);
   color: var(--text);
-  margin: 0;
+  font-family: 'Iosevka', monospace;
+  font-size: 20px;
+
+  /* centers the card in the viewport */
+  display: grid;
+  place-items: center;
+}
+
+/* Main card: left content + right slideshow */
+.main{
+  position: relative;
+  width: 1070px;   /* 770 content + 300 slideshow */
+  height: 600px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+}
+
+/* ===== Centered LEFT content ========================================== */
+.content{
+  position: absolute;
+  left: 0;
+  right: 300px;   /* keep clear of slideshow */
+  top: 0;
+  bottom: 0;
+
+  /* true centering */
   display: grid;
   place-items: center;
   padding: 24px;
 }
 
-/* Main card */
-.main{
-  position: relative;
-  width: 1070px;        /* 770 content + 300 slideshow */
-  height: 600px;
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  overflow: hidden;
+header{ text-align: center; }
+h1{
+  margin: 0;
+  font-weight: 400;
+  color: var(--text-strong);
+  letter-spacing: .5px;
+}
+.flair{ color: var(--blue); }
+
+/* Nav columns block */
+nav.links{
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+  justify-content: center;
 }
 
-/* Slideshow panel on the right */
+nav.links ul{
+  list-style: none;
+  margin: 0;
+  padding: 10px 28px;
+  border-right: 1px solid var(--border);
+  min-width: 190px;
+  transition: color .25s ease;
+}
+nav.links ul:last-of-type{ border-right: none; }
+
+.section-title{
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-strong);
+  margin: 6px 0 12px;
+}
+
+li{ margin: 8px 0; }
+
+ul > li > a{
+  text-decoration: none;
+  color: #adadad;
+  transition: color .2s ease;
+}
+
+/* Hover accent by column */
+ul.green  > li > a:hover{  color: var(--green); }
+ul.blue   > li > a:hover{  color: var(--blue); }
+ul.red    > li > a:hover{  color: var(--red); }
+ul.yellow > li > a:hover{  color: var(--yellow); }
+
+/* ===== RIGHT slideshow ================================================= */
 .image-wrapper{
   position: absolute;
   top: 0;
@@ -89,7 +151,7 @@ body{
   text-decoration: none;
 }
 
-/* Fade animation (optional, kept from yours) */
+/* subtle fade for slide swap */
 .fade{
   -webkit-animation-name: fade;
   -webkit-animation-duration: 1.2s;
@@ -99,97 +161,24 @@ body{
 @-webkit-keyframes fade{ from{opacity:.4} to{opacity:1} }
 @keyframes fade{ from{opacity:.4} to{opacity:1} }
 
-/* Dots */
-.dots{
-  position: absolute;
-  left: 0;
-  right: 300px;   /* keep dots within main content, not over slideshow */
-  bottom: 8px;
-  text-align: center;
-  pointer-events: auto;
-}
-.reqdVar{
-  display: inline-block;
-  width: 10px; height: 10px;
-  margin: 0 4px;
-  border-radius: 50%;
-  border: 1px solid currentColor;
-  opacity: .6; cursor: pointer;
-}
-.reqdVar.active{ opacity: 1; }
-
-/* Header */
-header{
-  position: absolute;
-  left: 0;
-  right: 300px;
-  top: 24px;
-  text-align: center;
-}
-h1{
-  margin: 0;
-  font-weight: 400;
-  color: var(--text-strong);
-}
-.flair{ color: var(--blue); }
-
-/* Clock */
+/* ===== Clock =========================================================== */
 .codes{
   position: absolute;
   left: 12px;
-  bottom: 40px;
+  bottom: 12px;
   color: #fff;
-  font-family: 'Iosevka', monospace;
   font-size: 18px;
+  letter-spacing: .02em;
 }
 
-/* Nav columns */
-nav.links{
-  position: absolute;
-  left: 0;
-  right: 300px;
-  top: 90px;
-  bottom: 80px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: stretch;
-  padding: 0 12px;
-  gap: 12px;
+/* ===== Small screens (optional) ======================================= */
+@media (max-width: 1140px){
+  .main{ width: 95vw; }
 }
-
-/* Each column */
-nav.links ul{
-  list-style: none;
-  margin: 0;
-  padding: 10px 24px;
-  border-right: 1px solid var(--border);
-  transition: color .3s ease;
-  min-width: 180px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+@media (max-width: 980px){
+  .main{ width: 100%; height: auto; }
+  .image-wrapper{ position: relative; width: 100%; height: 44vh; border-left: none; border-top: 1px solid var(--border); }
+  .content{ right: 0; }
+  nav.links{ flex-wrap: wrap; gap: 24px; }
+  nav.links ul{ border-right: none; border-bottom: 1px solid var(--border); }
 }
-nav.links ul:last-of-type{ border-right: none; }
-
-nav.links ul:hover{ color: #fff; }
-
-.section-title{
-  font-size: 22px;
-  font-weight: 600;
-  color: var(--text-strong);
-  margin: 4px 0 10px;
-}
-
-/* Items */
-li{ margin: 8px 0; }
-ul > li > a{
-  text-decoration: none;
-  color: #adadad;
-  transition: color .25s ease;
-}
-
-/* Hover colors by column */
-ul.green  > li > a:hover{  color: var(--green); }
-ul.blue   > li > a:hover{  color: var(--blue); }
-ul.red    > li > a:hover{  color: var(--red); }
-ul.yellow > li > a:hover{  color: var(--yellow); }

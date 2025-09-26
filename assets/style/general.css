@@ -22,8 +22,8 @@
   --card-h:600px;      /* total card height */
 
   --content-pad:28px;  /* inner padding around left content */
-  --left-pane-w: calc(var(--card-w) - var(--slide-w));                 /* auto */
-  --content-max:  calc(var(--left-pane-w) - (var(--content-pad) * 2)); /* auto */
+  --left-pane-w: calc(var(--card-w) - var(--slide-w));                  /* auto */
+  --content-max: calc(var(--left-pane-w) - (var(--content-pad) * 2));   /* auto */
 
   --col-gap:48px;      /* space between columns */
 }
@@ -85,21 +85,6 @@ nav.links{
   padding:10px 8px;
 }
 
-/* separators at 25/50/75% of the nav width */
-nav.links::before,
-nav.links::after{
-  content:"";
-  position:absolute; top:0; bottom:0; width:1px;
-  background:rgba(35,35,40,.6);
-}
-nav.links::before{ left:25%; }
-nav.links::after { left:75%; }
-/* middle separator (50%) via a pseudo-element on nav for wide support */
-nav.links::marker{ content: none; } /* noop: keep validators happy */
-nav.links:after{ /* already used; add the 50% line with a child hack */
-  /* handled above; no need for extra element since 25/75 are enough visually */
-}
-
 /* Columns */
 nav.links ul{
   list-style:none;
@@ -110,6 +95,20 @@ nav.links ul{
   align-items:flex-start;  /* left like “Home” */
   text-align:left;         /* left like “Home” */
   min-width:0;             /* allow content to shrink if needed */
+  position:relative;       /* for the per-gap separator */
+  z-index:1;               /* sit above the separator line */
+}
+
+/* Per-gap separator drawn exactly between columns (never over text) */
+nav.links ul:not(:first-child)::before{
+  content:"";
+  position:absolute;
+  top:0; bottom:0;
+  left: calc(-1 * (var(--col-gap) / 2));
+  width:1px;
+  background:rgba(35,35,40,.6);
+  z-index:0;
+  pointer-events:none;
 }
 
 .section-title{
@@ -191,6 +190,7 @@ ul.red    > li > a:hover{ color:var(--red); }
   :root{
     --slide-w:100%;
     --card-h:auto;
+    --col-gap:32px;
   }
   .image-wrapper{
     position:relative;
@@ -200,8 +200,7 @@ ul.red    > li > a:hover{ color:var(--red); }
   .content{ right:0; }
   nav.links{
     grid-template-columns:repeat(2, minmax(0, 1fr));
-    row-gap:24px; column-gap:32px;
+    row-gap:24px;
   }
-  nav.links::before{ left:50%; }
-  nav.links::after { display:none; }
+  nav.links ul::before{ display:none; } /* no separators on mobile */
 }

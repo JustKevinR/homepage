@@ -1,147 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>~</title>
-  <link rel="stylesheet" href="assets/style/general.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visual Homepage</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="main">
-    <!-- LEFT: centered content -->
-    <div class="content">
-      <div class="content-inner">
-        <header>
-          <h1><span class="flair">Welcome</span></h1>
-        </header>
+<header>
+</header>
 
-        <!-- Four equal columns (auto-fit to left pane width) -->
-        <nav class="links">
-          <ul class="green">
-            <li class="section-title">Daily</li>
-            <li><a href="https://docs.google.com/spreadsheets/d/1o7UVflc-YgG8DFLHvee0Mv4Ij-raPF-l-GATx-buwtI/edit?pli=1&gid=0#gid=0">Tracking</a></li>
-            <li><a href="https://chatgpt.com/">ChatGPT</a></li>
-            <li><a href="https://www.notion.so/Home-Station-f694799c31ef438e90fb4b02af3b6120">Notion</a></li>
-            <li><a href="https://vault.bitwarden.com/#/">Bitwarden</a></li>
-          </ul>
+<section class="section" id="work">
+<h2>Work Tools</h2>
+<div class="cards">
+  <a href="https://mail.google.com" target="_blank" class="card">
+    <img src="https://cdn.simpleicons.org/gmail?size=64" alt="Gmail">
+    <span>Gmail</span>
+  </a>
+  <a href="https://drive.google.com" target="_blank" class="card">
+    <img src="https://cdn.simpleicons.org/googledrive?size=64" alt="Google Drive">
+    <span>Google Drive</span>
+  </a>
+  <a href="https://mega.nz" target="_blank" class="card">
+    <img src="https://cdn.simpleicons.org/mega?size=64" alt="Mega">
+    <span>Mega</span>
+  </a>
+</div>
+</section>
 
-          <ul class="blue">
-            <li class="section-title">YouTube</li>
-            <li><a href="https://www.youtube.com/">YouTube Home</a></li>
-            <li><a href="https://www.youtube.com/playlist?list=PLGlkTReTM-9NqpIZoZTp5ntRAuwF1PsEq">YouTube Study</a></li>
-            <li><a href="https://www.youtube.com/playlist?list=PLGlkTReTM-9M2lq1LSTP7MobFy78qwwpi">YouTube POV</a></li>
-            <li><a href="https://www.youtube.com/playlist?list=PLGlkTReTM-9Omn1WCNHBaOpn9uHn3e1oh">YouTube Entertainment</a></li>
-          </ul>
+<section class="section" id="ai">
+<h2>AI & Cloud</h2>
+<div class="cards">
+  <a href="https://chat.openai.com" target="_blank" class="card">
+    <img src="https://cdn.simpleicons.org/openai?size=64" alt="ChatGPT">
+    <span>ChatGPT</span>
+  </a>
+  <a href="https://claude.ai/new" target="_blank" class="card">
+    <img src="https://cdn.simpleicons.org/googlecloud?size=64" alt="Cloud AI">
+    <span>Cloud AI</span>
+  </a>
+</div>
+</section>
 
-          <ul class="yellow">
-            <li class="section-title">Else</li>
-            <li><a href="https://gmail.com/">Gmail</a></li>
-            <li><a href="https://drive.google.com/drive/my-drive">Drive</a></li>
-            <li><a href="https://snapdrop.net/">Snapdrop</a></li>
-            <li><a href="https://github.com/">GitHub</a></li>
-            <li><a href="https://www.netlify.com/">Netlify</a></li>
-            <li><a href="https://www.reddit.com/r/FREEMEDIAHECKYEAH/wiki/video/#wiki_.25B7_streaming_apis">Reddit Movies</a></li>
-          </ul>
+<section class="section" id="dev">
+<h2>Development</h2>
+<div class="cards">
+  <a href="https://snapdrop.net" target="_blank" class="card">
+    <img src="https://cdn.simpleicons.org/snapdrop?size=64" alt="Snapdrop">
+    <span>Snapdrop</span>
+  </a>
+  <a href="https://github.com" target="_blank" class="card">
+    <img src="https://cdn.simpleicons.org/github?size=64" alt="GitHub">
+    <span>GitHub</span>
+  </a>
+  <a href="https://www.netlify.com" target="_blank" class="card">
+    <img src="https://cdn.simpleicons.org/netlify?size=64" alt="Netlify">
+    <span>Netlify</span>
+  </a>
+</div>
+</section>
 
-          <ul class="red">
-            <li class="section-title">Home</li>
-            <li><a href="#">temp1</a></li>
-            <li><a href="#">temp2</a></li>
-            <li><a href="#">temp3</a></li>
-          </ul>
-        </nav>
-      </div>
-    </div>
+<section class="section" id="entertainment">
+<h2>Entertainment</h2>
+<div class="cards">
+  <a href="https://www.youtube.com/feed/playlists" target="_blank" class="card">
+    <img src="https://cdn.simpleicons.org/youtube?size=64" alt="YouTube Playlist">
+    <span>YouTube Playlist</span>
+  </a>
+<div class="cards">
+  <a href="https://www.twitch.tv/" target="_blank" class="card">
+    <img src="https://cdn.simpleicons.org/twitch?size=64" alt="Twitch">
+    <span>Twitch</span>
+  </a>
+</section>
 
-    <!-- RIGHT: slideshow -->
-    <div class="image-wrapper">
-      <div class="mySlides fade"><img src="assets/imgs/side1.gif"  alt="slide 1"></div>
-      <div class="mySlides fade"><img src="assets/imgs/side2.gif"  alt="slide 2"></div>
-      <div class="mySlides fade"><img src="assets/imgs/side3.gif"  alt="slide 3"></div>
-      <div class="mySlides fade"><img src="assets/imgs/side4.gif"  alt="slide 4"></div>
-      <div class="mySlides fade"><img src="assets/imgs/side5.gif"  alt="slide 5"></div>
-      <div class="mySlides fade"><img src="assets/imgs/side6.gif"  alt="slide 6"></div>
-      <div class="mySlides fade"><img src="assets/imgs/side7.gif"  alt="slide 7"></div>
-      <div class="mySlides fade"><img src="assets/imgs/side8.gif"  alt="slide 8"></div>
-      <div class="mySlides fade"><img src="assets/imgs/side9.gif"  alt="slide 9"></div>
-      <div class="mySlides fade"><img src="assets/imgs/side10.gif" alt="slide 10"></div>
-      <div class="mySlides fade"><img src="assets/imgs/side11.gif" alt="slide 11"></div>
-      <div class="mySlides fade"><img src="assets/imgs/side12.gif" alt="slide 12"></div>
-      <div class="mySlides fade"><img src="assets/imgs/side13.gif" alt="slide 13"></div>
-      <div class="mySlides fade"><img src="assets/imgs/side14.gif" alt="slide 14"></div>
-      <div class="mySlides fade"><img src="assets/imgs/side15.gif" alt="slide 15"></div>
-      <div class="mySlides fade"><img src="assets/imgs/side16.gif" alt="slide 16"></div>
-      <div class="mySlides fade"><img src="assets/imgs/side17.gif" alt="slide 17"></div>
-      <div class="mySlides fade"><img src="assets/imgs/side18.gif" alt="slide 18"></div>
-      <div class="mySlides fade"><img src="assets/imgs/side19.gif" alt="slide 19"></div>
-      <div class="mySlides fade"><img src="assets/imgs/side20.gif" alt="slide 20"></div>
-      <div class="mySlides fade"><img src="assets/imgs/side21.gif" alt="slide 21"></div>
-      <div class="mySlides fade"><img src="assets/imgs/side22.gif" alt="slide 22"></div>
-      <div class="mySlides fade"><img src="assets/imgs/side23.gif" alt="slide 23"></div>
+<section class="section" id="personas">
+<h2>Personas</h2>
+<div class="cards">
+  <a href="#" target="_blank" class="card">
+    <img src="https://cdn.simpleicons.org/persona?size=64" alt="Persona 1">
+    <span>Persona 1</span>
+  </a>
+  <a href="#" target="_blank" class="card">
+    <img src="https://cdn.simpleicons.org/persona?size=64" alt="Persona 2">
+    <span>Persona 2</span>
+  </a>
+</div>
+</section>
 
-      <a class="next" onclick="plusSlides(1)" aria-label="Next slide">&#8734;</a>
-    </div>
-
-    <!-- Clock -->
-    <div id="codes" class="codes"></div>
-  </div>
-
-  <script>
-    // Clock
-    (function updateClock() {
-      const days = ['SUNDAY','MONDAY','TUESDAY','WEDNESDAY','THURSDAY','FRIDAY','SATURDAY'];
-      const m = new Date();
-      const s = [
-        days[m.getDay()],
-        String(m.getDate()).padStart(2,'0') + "/" + String(m.getMonth()+1).padStart(2,'0') + "/" + m.getFullYear(),
-        String(m.getHours()).padStart(2,'0') + ":" + String(m.getMinutes()).padStart(2,'0') + ":" + String(m.getSeconds()).padStart(2,'0')
-      ].join(" ");
-      const el = document.getElementById('codes');
-      if (el) el.textContent = s;
-      setTimeout(updateClock, 1000);
-    })();
-
-    // Slideshow + localStorage
-    let slideIndex = parseInt(localStorage.getItem('slideIndex') || "1", 10);
-    if (isNaN(slideIndex) || slideIndex < 1) slideIndex = 1;
-
-    function showSlides(n){
-      const slides = document.getElementsByClassName("mySlides");
-      const total  = slides.length;
-      if (n > total) slideIndex = 1;
-      if (n < 1)     slideIndex = total;
-      for (let i = 0; i < total; i++) slides[i].style.display = "none";
-      slides[slideIndex - 1].style.display = "block";
-    }
-    function plusSlides(n){
-      slideIndex += n;
-      showSlides(slideIndex);
-      localStorage.setItem('slideIndex', String(slideIndex));
-    }
-    function currentSlide(n){
-      slideIndex = n;
-      showSlides(slideIndex);
-      localStorage.setItem('slideIndex', String(slideIndex));
-    }
-    showSlides(slideIndex);
-
-    // Arrow keys + auto-advance with hover pause + lazy
-    addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight') plusSlides(1);
-      else if (e.key === 'ArrowLeft') plusSlides(-1);
-    });
-    let autoTimer = null;
-    const wrapper = document.querySelector('.image-wrapper');
-    function startAuto(){ stopAuto(); autoTimer = setInterval(()=> plusSlides(1), 8000); }
-    function stopAuto(){ if (autoTimer) { clearInterval(autoTimer); autoTimer = null; } }
-    if (wrapper){
-      wrapper.addEventListener('mouseenter', stopAuto);
-      wrapper.addEventListener('mouseleave', startAuto);
-      startAuto();
-    }
-    document.querySelectorAll('.mySlides img:not(:first-of-type)').forEach(img=>{
-      img.loading = 'lazy';
-      img.decoding = 'async';
-    });
-  </script>
 </body>
 </html>
